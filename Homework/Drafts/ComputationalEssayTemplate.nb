@@ -10,39 +10,381 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2498,         79]
-NotebookOptionsPosition[      1424,         43]
-NotebookOutlinePosition[      2402,         77]
-CellTagsIndexPosition[      2336,         72]
+NotebookDataLength[     16390,        421]
+NotebookOptionsPosition[     15238,        385]
+NotebookOutlinePosition[     16200,        418]
+CellTagsIndexPosition[     16132,        413]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell[TextData[{
- "< Essay Title ",
- StyleBox["(The first cell that is formatted as \[OpenCurlyDoubleQuote]Title\
-\[CloseCurlyDoubleQuote] will be the title we use for your essay) ",
-  FontSize->16],
- ">"
-}], "Title",
+Cell[TextData[StyleBox["Khoperskov Triaxial Dark Matter Halo ",
+ FontSize->36]], "Title",
  CellChangeTimes->{{3.770055572438499*^9, 3.7700555729498453`*^9}, {
-  3.770055604008165*^9, 3.7700556066618843`*^9}, {3.770373672636671*^9, 
-  3.7703737875292807`*^9}},
+   3.770055604008165*^9, 3.7700556066618843`*^9}, {3.770373672636671*^9, 
+   3.7703737875292807`*^9}, 3.770591839475379*^9},
  CellTags->"Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd"],
 
-Cell["< First and Last name>", "Text",
+Cell[TextData[StyleBox["Ying Zhang",
+ FontSize->18]], "Text",
  CellChangeTimes->{{3.549624168509506*^9, 3.549624171985794*^9}, {
-  3.549624508772977*^9, 3.549624510775043*^9}, {3.5498187159613867`*^9, 
-  3.5498187170087957`*^9}, {3.549819049020514*^9, 3.5498190533440437`*^9}, {
-  3.77005561844785*^9, 
-  3.7700556489651537`*^9}},ExpressionUUID->"94536f76-3fd2-4bf6-b228-\
-fa93ec9acae9"]
+   3.549624508772977*^9, 3.549624510775043*^9}, {3.5498187159613867`*^9, 
+   3.5498187170087957`*^9}, {3.549819049020514*^9, 3.5498190533440437`*^9}, {
+   3.77005561844785*^9, 3.7700556489651537`*^9}, 
+   3.770591844245805*^9},ExpressionUUID->"94536f76-3fd2-4bf6-b228-\
+fa93ec9acae9"],
+
+Cell[TextData[{
+ StyleBox["Introduction ", "Section"],
+ "\n",
+ StyleBox["Many mechanisms could address the evolution of spiral structures \
+within disc galaxies, such as density wave theory, tidal interaction. The \
+effect of dark matter halos is barely studied and of our interest. There are \
+many analytically hypothetic  potentials for spherical dark matter halos but \
+none of them induce spirals and recent studies show a rotating triaxial dark \
+matter might generate spiral arms.  Here we plot the contour plot of ",
+  FontSize->16],
+ Cell[BoxData[
+  TemplateBox[{
+   "\"\\!\\(\\*StyleBox[\\\"triaxial\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\
+\" \\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"dark\\\",FontSize->14]\\)\\!\\(\
+\\*StyleBox[\\\" \
+\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"matter\\\",FontSize->14]\\)\\!\\(\\\
+*StyleBox[\\\" \
+\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"halo\\\",FontSize->14]\\)\"",
+    "https://link.springer.com/article/10.1134%2FS1063772912010039"},
+   "HyperlinkURL"]],
+  CellContext->"Cell$$57950`",ExpressionUUID->
+  "a9f3e648-baee-4d7d-a389-4b0aea8209b7"],
+ " introduced by Khoperskov to demonstrate how the triaxial halo shapes. \n\n",
+ StyleBox["Potential\n", "Section"],
+ "The equation of the potential is: \n                                   ",
+ StyleBox["        ", "CodeText"],
+ StyleBox["  \[Psi]( x, y, z)  = 4 \[Pi] G ", "CodeText",
+  FontSize->16],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", 
+    RowBox[{"0", " "}]], TraditionalForm]], "CodeText",
+  FontSize->16,ExpressionUUID->"5fe5a634-2352-4e7c-bfe3-1603e61afc5d"], 
+  "CodeText"],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   SuperscriptBox["a", "2"], TraditionalForm]], "CodeText",
+  FontSize->16,ExpressionUUID->"6c156171-3787-4336-b5e8-23a426fd8540"], 
+  "CodeText"],
+ StyleBox["\[Times] ( ln \[Xi] +", "CodeText",
+  FontSize->16],
+ StyleBox[" ", "CodeText",
+  FontSize->24],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{
+     StyleBox["arctan",
+      FontSize->12], 
+     StyleBox[" ",
+      FontSize->12], 
+     StyleBox["\[Xi]",
+      FontSize->12], " "}], 
+    StyleBox["\[Xi]",
+     FontSize->12]], TraditionalForm]], "CodeText",
+  FontSize->18,ExpressionUUID->"2218c48f-10f3-49d8-b3ae-b8f839716339"], 
+  "CodeText"],
+ StyleBox["+ ", "CodeText",
+  FontSize->16],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   FractionBox["1", "2"], TraditionalForm]], "CodeText",
+  FontSize->16,ExpressionUUID->"519aab00-df93-4517-88e2-4dc38321f134"], 
+  "CodeText"],
+ StyleBox[" ln ", "CodeText",
+  FontSize->16],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   StyleBox[
+    FractionBox[
+     StyleBox[
+      RowBox[{"1", "+", 
+       SuperscriptBox["\[Xi]", "2"]}],
+      FontSize->12], 
+     StyleBox[
+      SuperscriptBox["\[Xi]", "2"],
+      FontSize->12]],
+    FontSize->18], TraditionalForm]], "CodeText",
+  FontSize->16,ExpressionUUID->"91a6a67f-2c72-4c07-bd78-01f7e6d56d97"], 
+  "CodeText"],
+ StyleBox[") ", "CodeText",
+  FontSize->16],
+ StyleBox[" ",
+  FontSize->16],
+ "\nand          \n                                            ",
+ StyleBox[" ", "CodeText"],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   StyleBox["\[Xi]", "Text"], TraditionalForm]], "CodeText",ExpressionUUID->
+  "12709a6c-e3dd-4cc0-bf0f-96cbf36929d9"], "CodeText"],
+ StyleBox[" = ", "CodeText"],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   StyleBox[
+    SqrtBox[
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["x", "2"], 
+       SuperscriptBox["a", "2"]], " ", "+", 
+      FractionBox[
+       RowBox[{" ", 
+        SuperscriptBox["y", "2"]}], 
+       SuperscriptBox["b", "2"]], " ", "+", " ", 
+      FractionBox[
+       SuperscriptBox["z", "2"], 
+       SuperscriptBox["c", "2"]]}]], "Text",
+    FontSize->16], TraditionalForm]], "CodeText",ExpressionUUID->
+  "bec5a28c-bb68-4296-ab78-aa48d58e4a26"], "CodeText"],
+ StyleBox["\n                                             ", "CodeText"],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", 
+    RowBox[{"0", " "}]], TraditionalForm]], "CodeText",
+  FontSize->16,ExpressionUUID->"337cbed1-f8ff-4661-9f3f-9de84d72fa7e"], 
+  "CodeText"],
+ StyleBox["=  ", "CodeText"],
+ StyleBox[Cell[BoxData[
+  RowBox[{
+   SubscriptBox["M", "h"], "/", 
+   RowBox[{"(", 
+    RowBox[{"4", 
+     StyleBox["\[Pi]",
+      FontSize->16], 
+     StyleBox[" ",
+      FontSize->16], 
+     SuperscriptBox["a", "3"], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"R", "/", "a"}], "-", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"R", "/", "a"}], "]"}]}], ")"}]}], ")"}]}]], "CodeText",
+  CellChangeTimes->{{3.7705844562035227`*^9, 3.7705844568363028`*^9}, {
+   3.770584829360043*^9, 3.7705848297141323`*^9}},ExpressionUUID->
+  "1f9428ce-37e7-4825-92c3-a8bf5ad8d747"], "CodeText"],
+ "\na, b and c are characteristic scales to describe the triaxiality of the \
+dark matter halo,  ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", 
+    RowBox[{"0", " "}]], TraditionalForm]],
+  FontSize->16,ExpressionUUID->"713a9eae-570e-4c71-8af7-626f37951f90"],
+ "is the core density distribution of dark matter halo. First we set up the \
+constants and in order to simplify a little, we only consider the the x-y \
+plane and get rid of some constants that are of no significance such as \
+gravitational constant G and halo mass ",
+ Cell[BoxData[
+  SubscriptBox["M", "h"]],
+  CellChangeTimes->{{3.7705844562035227`*^9, 3.7705844568363028`*^9}, {
+   3.770584829360043*^9, 3.7705848297141323`*^9}},ExpressionUUID->
+  "89abd6f1-8b2d-487a-8b18-229ef9e4a13c"],
+ ". \n                                           \n",
+ StyleBox[Cell[BoxData[{
+  StyleBox[
+   RowBox[{
+    RowBox[{"R", " ", "=", " ", "12"}], ";"}], 
+   "Input"], "\[IndentingNewLine]", 
+  StyleBox[
+   RowBox[{
+    RowBox[{"a", " ", "=", " ", "6"}], ";"}], "Input"], "\[IndentingNewLine]", 
+  StyleBox[
+   RowBox[{
+    RowBox[{"b", " ", "=", " ", 
+     RowBox[{"0.8", " ", "a"}]}], ";"}], "Input"], "\[IndentingNewLine]", 
+  StyleBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[Rho]", "h"], " ", "=", " ", 
+     RowBox[{"1", "/", 
+      RowBox[{"(", 
+       RowBox[{"4", "Pi", " ", 
+        SuperscriptBox["a", "3"], 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"R", "/", "a"}], " ", "-", " ", 
+          RowBox[{"ArcTan", "[", 
+           RowBox[{"R", "/", "a"}], "]"}]}], ")"}]}], ")"}]}]}], ";"}], 
+   "Input"]}], "Code",
+  CellChangeTimes->{{3.770592387157857*^9, 3.7705924711881113`*^9}, {
+   3.770593144066247*^9, 3.770593160898981*^9}},ExpressionUUID->
+  "6c0c5ebb-c234-46af-ad6c-2c46eb70b94f"], "Code"],
+ StyleBox["\n", "Code"],
+ StyleBox["\n", "Subtitle"],
+ "The triaxial dark matter halo also rotates, so we implement rotation of \
+axis and the direction is clockwise, this means our potential is rotating \
+with an angle described by \[Theta].\n\n",
+ Cell[BoxData[{
+  StyleBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"x1", "[", 
+      RowBox[{"x_", ",", " ", "y_", ",", " ", "\[Theta]_"}], "]"}], ":=", " ", 
+     RowBox[{
+      RowBox[{"x", " ", "*", " ", 
+       RowBox[{"Cos", "[", "\[Theta]", "]"}]}], " ", "-", " ", 
+      RowBox[{"y", " ", "*", " ", 
+       RowBox[{"Sin", "[", "\[Theta]", "]"}]}]}]}], ";"}], "Input"], "\n", 
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{"y1", "[", 
+       RowBox[{"x_", ",", " ", "y_", ",", " ", "\[Theta]_"}], "]"}], ":=", 
+      " ", 
+      RowBox[{
+       RowBox[{"y", " ", "*", " ", 
+        RowBox[{"Cos", "[", "\[Theta]", "]"}]}], " ", "+", " ", 
+       RowBox[{"x", " ", "*", " ", 
+        RowBox[{"Sin", "[", "\[Theta]", "]"}]}]}]}], ";"}], "Input"], 
+   "\n" StyleBox[Null, "Input"]}]}], "Code",
+  CellChangeTimes->{{3.770584498247202*^9, 3.770584707162632*^9}, {
+    3.7705847590226507`*^9, 3.770584851528075*^9}, 3.7705877224276743`*^9},
+  ExpressionUUID->"2f5684b3-1e0f-4a78-9893-09ce80f11ecd"],
+ "\n\nwhich leads potential is  a function of position and the rotational \
+angle.\n\n",
+ StyleBox[Cell[BoxData[{
+  StyleBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[Xi]", "[", 
+      RowBox[{"x_", ",", " ", "y_", ",", " ", "\[Theta]_"}], "]"}], ":=", " ", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"x1", "[", 
+          RowBox[{"x", ",", " ", "y", ",", " ", "\[Theta]"}], "]"}], "2"], 
+        "/", 
+        SuperscriptBox["a", "2"]}], " ", "+", " ", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"y1", "[", 
+          RowBox[{"x", ",", " ", "y", ",", "\[Theta]"}], "]"}], "2"], "/", 
+        SuperscriptBox["b", "2"]}]}], "]"}]}], ";"}], "Input"], "\n", 
+  StyleBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[Psi]", "[", 
+      RowBox[{"x_", ",", " ", "y_", ",", " ", "\[Theta]_"}], "]"}], ":=", " ", 
+     RowBox[{"4", " ", 
+      StyleBox["\[Pi]",
+       FontSize->16], " ", "*", " ", 
+      SubscriptBox["\[Rho]", "h"], " ", "*", " ", 
+      SuperscriptBox["a", "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Log", "[", 
+         RowBox[{"\[Xi]", "[", 
+          RowBox[{"x", ",", "y", ",", "\[Theta]"}], "]"}], "]"}], "+", 
+        FractionBox[
+         RowBox[{"ArcTan", "[", 
+          RowBox[{"\[Xi]", "[", 
+           RowBox[{"x", ",", "y", ",", "\[Theta]"}], "]"}], "]"}], 
+         RowBox[{"\[Xi]", "[", 
+          RowBox[{"x", ",", "y", ",", "\[Theta]"}], "]"}]], " ", "+", " ", 
+        RowBox[{
+         FractionBox["1", "2"], 
+         RowBox[{"Log", "[", 
+          FractionBox[
+           RowBox[{"1", "+", 
+            SuperscriptBox[
+             RowBox[{"\[Xi]", "[", 
+              RowBox[{"x", ",", "y", ",", "\[Theta]"}], "]"}], "2"]}], 
+           SuperscriptBox[
+            RowBox[{"\[Xi]", "[", 
+             RowBox[{"x", ",", "y", ",", "\[Theta]"}], "]"}], "2"]], 
+          "]"}]}]}], ")"}]}]}], ";"}], "Input"]}], "Code",
+  CellChangeTimes->{{3.770584498247202*^9, 3.770584707162632*^9}, {
+    3.7705847590226507`*^9, 3.770584851528075*^9}, 3.7705877224276743`*^9},
+  ExpressionUUID->"9ee45bcd-a77a-46d0-abf5-bf8fceee73a7"], "Code"],
+ StyleBox["\n\n", "Code"],
+ StyleBox["Contour Plot", "Section"],
+ StyleBox["\n", "Code"],
+ "finally we use Manipulate and ContourPlot function to demonstrate how the \
+triaxial dark matter halo evolves with phase \[Theta] .\n\n",
+ Cell[BoxData[
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"ContourPlot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"\[Psi]", "[", 
+        RowBox[{"x", ",", "y", ",", " ", "\[Theta]"}], "]"}], "/", 
+       SuperscriptBox["10", "10"]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"y", ",", 
+        RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+      RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+      RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+      RowBox[{"ColorFunction", "\[Rule]", "\"\<GrayYellowTones\>\""}], ",", 
+      RowBox[{"PlotLegends", "\[Rule]", 
+       RowBox[{"BarLegend", "[", 
+        RowBox[{"Automatic", ",", 
+         RowBox[{"LegendMarkerSize", "\[Rule]", "180"}], ",", 
+         RowBox[{"LegendFunction", "\[Rule]", "\"\<Frame\>\""}], ",", 
+         RowBox[{"LegendMargins", "\[Rule]", "5"}], ",", 
+         RowBox[{
+         "LegendLabel", "\[Rule]", 
+          "\"\<\[Psi]/\!\(\*SuperscriptBox[\(10\), \(10\)]\)\>\""}]}], 
+        "]"}]}], ",", 
+      RowBox[{"ContourLines", "\[Rule]", "False"}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\[Theta]", ",", "Pi", ",", "\"\<Phase\>\""}], "}"}], ",", 
+      "Pi", ",", 
+      RowBox[{"\[Pi]", "/", "16"}]}], "}"}]}], "]"}]], "Input",
+  CellChangeTimes->{{3.7705841690085077`*^9, 3.770584415351882*^9}, {
+    3.770584479331327*^9, 3.770584487209875*^9}, 3.770584593324952*^9, {
+    3.770584728957266*^9, 3.770584735167446*^9}, {3.770584875201367*^9, 
+    3.770584934378384*^9}, 3.770584976901009*^9, {3.770585284990117*^9, 
+    3.770585286961565*^9}, {3.770585329619734*^9, 3.770585329987103*^9}, 
+    3.7705853623171797`*^9, {3.770585467604932*^9, 3.770585468081736*^9}, {
+    3.770585509675817*^9, 3.770585636459621*^9}, {3.770585767427293*^9, 
+    3.770585796080405*^9}, {3.770585828815296*^9, 3.770585829154859*^9}, {
+    3.770585862376375*^9, 3.770585891229328*^9}, {3.770586012218639*^9, 
+    3.770586041434276*^9}, {3.7705860917901993`*^9, 3.7705861533990602`*^9}, 
+    3.770586244343976*^9, {3.7705862824658823`*^9, 3.770586302337202*^9}, {
+    3.77058672696095*^9, 3.770586747688876*^9}, {3.7705868102995872`*^9, 
+    3.770586866168379*^9}, {3.770586952388514*^9, 3.77058695302995*^9}},
+  ExpressionUUID->"f52322ff-7005-4f54-a624-0b41d3c3fff8"],
+ StyleBox["\n", "Section"],
+ "\n"
+}], "Text",
+ CellChangeTimes->{{3.770591849288258*^9, 3.770591922948348*^9}, {
+   3.770591991174094*^9, 3.770592076005237*^9}, {3.770592133864703*^9, 
+   3.770592226112343*^9}, {3.770592291719707*^9, 3.770592362822386*^9}, {
+   3.770592474653657*^9, 3.770592887515567*^9}, 3.770592920401081*^9, {
+   3.770592954842387*^9, 3.770592962012577*^9}, {3.770593030462167*^9, 
+   3.7705931319522943`*^9}, 3.770593171125188*^9, {3.770593216679679*^9, 
+   3.770593265527396*^9}, {3.7705933402917337`*^9, 3.77059334029256*^9}, {
+   3.770593710456325*^9, 3.7705937449779778`*^9}, {3.770593823307426*^9, 
+   3.770593938061564*^9}, {3.770593969548085*^9, 3.770594013852797*^9}, {
+   3.770594194986619*^9, 3.77059420262048*^9}, {3.770594235427885*^9, 
+   3.77059423904198*^9}, {3.770594289041477*^9, 3.7705945859646797`*^9}, {
+   3.770594624814068*^9, 3.77059464095487*^9}, {3.7705946786058693`*^9, 
+   3.7705946938096952`*^9}, {3.770594725146902*^9, 3.770594725147778*^9}, {
+   3.770594812362585*^9, 3.770594830766284*^9}, {3.77059495510583*^9, 
+   3.770595026541514*^9}, {3.770595080695211*^9, 3.7705951156535673`*^9}, {
+   3.7705951930391197`*^9, 3.770595353977669*^9}, {3.77059543136786*^9, 
+   3.770595441292861*^9}, 
+   3.77059552696764*^9},ExpressionUUID->"298a5f6a-18fb-4dc7-9bad-\
+706996ac5b84"]
 }, Open  ]]
 },
 WindowSize->{720, 855},
-WindowMargins->{{360, Automatic}, {Automatic, 0}},
+WindowMargins->{{200, Automatic}, {Automatic, 9}},
 DockedCells->{
   Cell[
    TextData[{
@@ -55,8 +397,7 @@ DockedCells->{
       RGBColor[0.97, 0.83, 0.35], FontFamily -> "Source Sans Pro", FontSize -> 
       40]}], CellFrameMargins -> 10, Background -> 
    RGBColor[0.12, 0.14, 0.15]]},
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 11, 2019)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -65,21 +406,22 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "Title"->{
-  Cell[580, 22, 461, 10, 160, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd",
+  Cell[580, 22, 358, 5, 86, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd",
    CellTags->"Title"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Title", 2195, 66}
+ {"Title", 15993, 407}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 461, 10, 160, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd",
+Cell[580, 22, 358, 5, 86, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd",
  CellTags->"Title"],
-Cell[1044, 34, 364, 6, 35, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"]
+Cell[941, 29, 413, 7, 38, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"],
+Cell[1357, 38, 13865, 344, 1210, "Text",ExpressionUUID->"298a5f6a-18fb-4dc7-9bad-706996ac5b84"]
 }, Open  ]]
 }
 ]
