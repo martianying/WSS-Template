@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     16390,        421]
-NotebookOptionsPosition[     15238,        385]
-NotebookOutlinePosition[     16200,        418]
-CellTagsIndexPosition[     16132,        413]
+NotebookDataLength[     18021,        454]
+NotebookOptionsPosition[     16866,        418]
+NotebookOutlinePosition[     17831,        451]
+CellTagsIndexPosition[     17763,        446]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -58,7 +58,8 @@ matter might generate spiral arms.  Here we plot the contour plot of ",
    "HyperlinkURL"]],
   CellContext->"Cell$$57950`",ExpressionUUID->
   "a9f3e648-baee-4d7d-a389-4b0aea8209b7"],
- " introduced by Khoperskov to demonstrate how the triaxial halo shapes. \n\n",
+ " introduced by Khoperskov to demonstrate how the triaxial halo shapes and \
+works. \n\n",
  StyleBox["Potential\n", "Section"],
  "The equation of the potential is: \n                                   ",
  StyleBox["        ", "CodeText"],
@@ -309,42 +310,40 @@ angle.\n\n",
  StyleBox["Contour Plot", "Section"],
  StyleBox["\n", "Code"],
  "finally we use Manipulate and ContourPlot function to demonstrate how the \
-triaxial dark matter halo evolves with phase \[Theta] .\n\n",
+triaxial dark matter halo evolves with phase \[Theta] . \n\n",
  Cell[BoxData[
-  RowBox[{"Manipulate", "[", 
-   RowBox[{
-    RowBox[{"ContourPlot", "[", 
-     RowBox[{
+  StyleBox[
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"ContourPlot", "[", 
       RowBox[{
        RowBox[{"\[Psi]", "[", 
-        RowBox[{"x", ",", "y", ",", " ", "\[Theta]"}], "]"}], "/", 
-       SuperscriptBox["10", "10"]}], ",", 
-      RowBox[{"{", 
-       RowBox[{"x", ",", 
-        RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"y", ",", 
-        RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
-      RowBox[{"Axes", "\[Rule]", "True"}], ",", 
-      RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
-      RowBox[{"ColorFunction", "\[Rule]", "\"\<GrayYellowTones\>\""}], ",", 
-      RowBox[{"PlotLegends", "\[Rule]", 
-       RowBox[{"BarLegend", "[", 
-        RowBox[{"Automatic", ",", 
-         RowBox[{"LegendMarkerSize", "\[Rule]", "180"}], ",", 
-         RowBox[{"LegendFunction", "\[Rule]", "\"\<Frame\>\""}], ",", 
-         RowBox[{"LegendMargins", "\[Rule]", "5"}], ",", 
-         RowBox[{
-         "LegendLabel", "\[Rule]", 
-          "\"\<\[Psi]/\!\(\*SuperscriptBox[\(10\), \(10\)]\)\>\""}]}], 
-        "]"}]}], ",", 
-      RowBox[{"ContourLines", "\[Rule]", "False"}]}], "]"}], ",", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"\[Theta]", ",", "Pi", ",", "\"\<Phase\>\""}], "}"}], ",", 
-      "Pi", ",", 
-      RowBox[{"\[Pi]", "/", "16"}]}], "}"}]}], "]"}]], "Input",
+        RowBox[{"x", ",", "y", ",", " ", "\[Theta]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", 
+         RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", "\n", 
+       RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+       RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+       RowBox[{"ColorFunction", "\[Rule]", "\"\<GrayYellowTones\>\""}], ",", 
+       "\n", 
+       RowBox[{"PlotLegends", "\[Rule]", 
+        RowBox[{"BarLegend", "[", 
+         RowBox[{"Automatic", ",", 
+          RowBox[{"LegendMarkerSize", "\[Rule]", "180"}], ",", 
+          RowBox[{"LegendFunction", "\[Rule]", "\"\<Frame\>\""}], ",", "\n", 
+          RowBox[{"LegendMargins", "\[Rule]", "5"}], ",", 
+          RowBox[{"LegendLabel", "\[Rule]", "\"\<\[Psi]\>\""}]}], "]"}]}], 
+       ",", 
+       RowBox[{"ContourLines", "\[Rule]", "False"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\[Theta]", ",", "Pi", ",", "\"\<Phase\>\""}], "}"}], ",", 
+       "Pi", ",", 
+       RowBox[{"\[Pi]", "/", "16"}]}], "}"}]}], "]"}], "Input"]], "Code",
   CellChangeTimes->{{3.7705841690085077`*^9, 3.770584415351882*^9}, {
     3.770584479331327*^9, 3.770584487209875*^9}, 3.770584593324952*^9, {
     3.770584728957266*^9, 3.770584735167446*^9}, {3.770584875201367*^9, 
@@ -359,6 +358,32 @@ triaxial dark matter halo evolves with phase \[Theta] .\n\n",
     3.77058672696095*^9, 3.770586747688876*^9}, {3.7705868102995872`*^9, 
     3.770586866168379*^9}, {3.770586952388514*^9, 3.77058695302995*^9}},
   ExpressionUUID->"f52322ff-7005-4f54-a624-0b41d3c3fff8"],
+ StyleBox["\n", "Section"],
+ "\n",
+ StyleBox["Further Exploration\n", "Section"],
+ "Other dark matter halo profiles are also adapted in the search of spiral \
+arms within both gaseous and stellar discs with identical simulation results. \
+One is  ",
+ Cell[BoxData[
+  TemplateBox[{
+   "\"NFW halo\"","https://iopscience.iop.org/article/10.1086/342262"},
+   "HyperlinkURL"]],
+  CellContext->"Cell$$59369`",ExpressionUUID->
+  "34db5a46-7b22-4d08-99ed-53a1a17ed3f1"],
+ "and the other one is combining ",
+ Cell[BoxData[
+  TemplateBox[{
+   "\"Hernquist halo\"",
+    "https://academic.oup.com/mnras/article-abstract/461/3/2789/2608539?\
+redirectedFrom=PDF"},
+   "HyperlinkURL"]],
+  CellContext->"Cell$$59369`",ExpressionUUID->
+  "34a623f5-6f26-4c9a-9837-b2d1af81b33a"],
+ " with two lower-order spherical harmonic terms. We could draw contour plots \
+of theirs to make comparisons between them and better understand the \
+differences and similarities among distinct halo choices.",
+ StyleBox["\nAuthor contact information\n", "Section"],
+ "zhang@astro1.sci.hokudai.ac.jp",
  StyleBox["\n", "Section"],
  "\n"
 }], "Text",
@@ -378,13 +403,21 @@ triaxial dark matter halo evolves with phase \[Theta] .\n\n",
    3.770594812362585*^9, 3.770594830766284*^9}, {3.77059495510583*^9, 
    3.770595026541514*^9}, {3.770595080695211*^9, 3.7705951156535673`*^9}, {
    3.7705951930391197`*^9, 3.770595353977669*^9}, {3.77059543136786*^9, 
-   3.770595441292861*^9}, 
-   3.77059552696764*^9},ExpressionUUID->"298a5f6a-18fb-4dc7-9bad-\
+   3.770595441292861*^9}, 3.77059552696764*^9, {3.770595668863862*^9, 
+   3.770595710670512*^9}, {3.770595851502252*^9, 3.7705958564175997`*^9}, {
+   3.7705959959379377`*^9, 3.7705960023939753`*^9}, {3.77059624040878*^9, 
+   3.770596319060896*^9}, {3.77059649685079*^9, 3.770596564564641*^9}, {
+   3.77059663928979*^9, 3.770596673394987*^9}, {3.7705967078351583`*^9, 
+   3.770596757504915*^9}, {3.770596789081037*^9, 3.7705967942297993`*^9}, {
+   3.770596829238008*^9, 3.770597056893545*^9}, {3.770597204292018*^9, 
+   3.7705972066285458`*^9}, 3.770597236803193*^9, 3.770597324918895*^9, {
+   3.7705974919601603`*^9, 
+   3.7705975024761744`*^9}},ExpressionUUID->"298a5f6a-18fb-4dc7-9bad-\
 706996ac5b84"]
 }, Open  ]]
 },
-WindowSize->{720, 855},
-WindowMargins->{{200, Automatic}, {Automatic, 9}},
+WindowSize->{1045, 817},
+WindowMargins->{{Automatic, 142}, {-19, Automatic}},
 DockedCells->{
   Cell[
    TextData[{
@@ -412,7 +445,7 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Title", 15993, 407}
+ {"Title", 17624, 440}
  }
 *)
 (*NotebookFileOutline
@@ -421,7 +454,7 @@ Cell[CellGroupData[{
 Cell[580, 22, 358, 5, 86, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd",
  CellTags->"Title"],
 Cell[941, 29, 413, 7, 38, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"],
-Cell[1357, 38, 13865, 344, 1210, "Text",ExpressionUUID->"298a5f6a-18fb-4dc7-9bad-706996ac5b84"]
+Cell[1357, 38, 15493, 377, 1257, "Text",ExpressionUUID->"298a5f6a-18fb-4dc7-9bad-706996ac5b84"]
 }, Open  ]]
 }
 ]
