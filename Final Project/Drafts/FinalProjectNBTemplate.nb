@@ -10,40 +10,536 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2508,         74]
-NotebookOptionsPosition[      1520,         44]
-NotebookOutlinePosition[      2344,         72]
-CellTagsIndexPosition[      2301,         69]
+NotebookDataLength[     23734,        598]
+NotebookOptionsPosition[     20951,        540]
+NotebookOutlinePosition[     21759,        567]
+CellTagsIndexPosition[     21716,        564]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["< Project Title >", "Title",
+Cell["Gender-from-voice Predictor", "Title",
  CellChangeTimes->{{3.770055572438499*^9, 3.7700555729498453`*^9}, {
-  3.770055604008165*^9, 
-  3.7700556066618843`*^9}},ExpressionUUID->"49ab34ee-bfd5-49f5-beef-\
+  3.770055604008165*^9, 3.7700556066618843`*^9}, {3.771623089762841*^9, 
+  3.771623098527166*^9}, {3.77162354326648*^9, 
+  3.77162354777107*^9}},ExpressionUUID->"49ab34ee-bfd5-49f5-beef-\
 400d3cc456dd"],
 
-Cell["< First and Last name>", "Text",
+Cell["Ying Zhang ", "Text",
  CellChangeTimes->{{3.549624168509506*^9, 3.549624171985794*^9}, {
   3.549624508772977*^9, 3.549624510775043*^9}, {3.5498187159613867`*^9, 
   3.5498187170087957`*^9}, {3.549819049020514*^9, 3.5498190533440437`*^9}, {
-  3.77005561844785*^9, 
-  3.7700556489651537`*^9}},ExpressionUUID->"94536f76-3fd2-4bf6-b228-\
+  3.77005561844785*^9, 3.7700556489651537`*^9}, {3.7716231023488827`*^9, 
+  3.771623105694332*^9}},ExpressionUUID->"94536f76-3fd2-4bf6-b228-\
 fa93ec9acae9"],
 
-Cell["< Mentor\[CloseCurlyQuote]s First and Last name>", "Text",
+Cell["Mentor : Dariia Porechna", "Text",
  CellChangeTimes->{{3.549624515773694*^9, 3.5496245246892014`*^9}, {
   3.5498187208956137`*^9, 3.5498187221413403`*^9}, {3.5498190558319674`*^9, 
-  3.54981906151682*^9}, {3.770055624686027*^9, 
-  3.770055659820487*^9}},ExpressionUUID->"b70c649b-a958-4202-9f22-\
-238ea1f9c7d4"]
+  3.54981906151682*^9}, {3.770055624686027*^9, 3.770055659820487*^9}, {
+  3.7716231262927113`*^9, 
+  3.771623134117293*^9}},ExpressionUUID->"b70c649b-a958-4202-9f22-\
+238ea1f9c7d4"],
+
+Cell[CellGroupData[{
+
+Cell["Proposal ", "Section",
+ CellChangeTimes->{{3.771623156289834*^9, 3.771623161120213*^9}, {
+  3.771623191412806*^9, 3.771623195614386*^9}, {3.771623402123866*^9, 
+  3.771623411574238*^9}},ExpressionUUID->"1c0a341f-07b2-471f-b252-\
+8f64aa2baf5c"],
+
+Cell["\<\
+By utilizing machine learning functions in Mathematica, we could predict \
+genders of the input voices. The dataset we used is the open audio source \
+VoxCeleb1 Dataset, which contains over 100,000 utterances for 1,251 \
+celebrities from YouTube videos. The powerful in-build Classify function \
+helps us classify real voices into categories, learn from examples and  \
+predict values from data.  Neural network is applied to tackle dataset with \
+camouflaged, frequency-shifted, voices.\
+\>", "Text",
+ CellChangeTimes->{{3.771623559402265*^9, 3.771623736330677*^9}, {
+   3.7716237754709253`*^9, 3.7716237807154903`*^9}, 3.771623843116764*^9, {
+   3.771623921347848*^9, 3.7716239358375483`*^9}, 
+   3.7716299363523483`*^9},ExpressionUUID->"ff924d7b-2ad7-4c11-9275-\
+a28c32691e94"]
+}, Open  ]],
+
+Cell["Predict Gender For Real Voices", "Section",
+ CellChangeTimes->{{3.771623966013068*^9, 3.771624003996122*^9}, {
+  3.771629003133819*^9, 3.771629004702647*^9}, {3.77163011026577*^9, 
+  3.771630123709907*^9}},ExpressionUUID->"ad5c4978-e817-43ab-9935-\
+02cae57f7e9f"],
+
+Cell[CellGroupData[{
+
+Cell["Dataset ", "Subtitle",
+ CellChangeTimes->{{3.77162409560046*^9, 
+  3.771624099511344*^9}},ExpressionUUID->"e1f4415e-c774-45c5-a311-\
+3740042a2de3"],
+
+Cell["\<\
+First we download information for all the speakers in the dataset from the \
+website, eliminate the headings, extract ID and gender columns.\
+\>", "Text",
+ CellChangeTimes->{{3.771624120075223*^9, 3.771624231981777*^9}, {
+  3.771624288458515*^9, 3.771624289156402*^9}, {3.771624320509729*^9, 
+  3.771624325643897*^9}, {3.7716246083812532`*^9, 
+  3.7716246097428513`*^9}},ExpressionUUID->"feec410c-48f7-4fb3-8734-\
+e22a046638ba"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"metadata", "=", 
+   RowBox[{"Rest", "@", "\n", "              ", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+     "\"\<http://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/vox1_meta.csv\>\"\
+", ",", "\n", "                     ", "\"\<Table\>\""}], "]"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"$id", " ", "=", " ", "1"}], ";", 
+   RowBox[{"(*", 
+    RowBox[{"gender", " ", "is", " ", "the", " ", "1", "st", " ", "colomn"}], 
+    "*)"}], "\n", 
+   RowBox[{"$gender", " ", "=", " ", "3"}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{"gender", " ", "is", " ", "the", " ", "3", "rd", " ", "colomn"}], 
+    "*)"}], "\n", 
+   RowBox[{"idToGender", " ", "=", " ", 
+    RowBox[{"Association", "[", "\n", "                  ", 
+     RowBox[{"Thread", "[", 
+      RowBox[{
+       RowBox[{"metadata", "\[LeftDoubleBracket]", 
+        RowBox[{"All", ",", " ", "$id"}], "\[RightDoubleBracket]"}], " ", 
+       "\[Rule]", " ", 
+       RowBox[{"metadata", "\[LeftDoubleBracket]", 
+        RowBox[{"All", ",", " ", "$gender"}], "\[RightDoubleBracket]"}]}], 
+      "]"}], "\n", "                         ", "]"}]}], ";"}], 
+  "                    "}]}], "Code",
+ CellChangeTimes->{{3.771624341388575*^9, 
+  3.771624404092099*^9}},ExpressionUUID->"049e1855-0cb0-4939-b9fb-\
+f7e0ab8b0b61"],
+
+Cell["\<\
+Then, we make associations between audios and genders. 
+The VoxCeleb1 Dataset, though claims it contains more than 1,251 IDs or \
+celebrities\[CloseCurlyQuote] voices, is not complete. some IDs in the CSV \
+file do not have the associated audios.  Each ID of training and test audios \
+envelopes several sub-directories holding different dialogues belonged to one \
+individual. Every dialogue is divided into sundry fragments and named in the \
+order of Arabic numbers. After annihilating all sub-directories of each ID \
+and move all involving fragments under the parent ID directory, we randomly \
+choose an audio from each voice ID to put into another file and train our \
+classifier with build-in function Classify.\
+\>", "Text",
+ CellChangeTimes->{{3.7716244901590233`*^9, 3.771624525848523*^9}, {
+  3.77162458534302*^9, 3.771624602805365*^9}, {3.771624643056369*^9, 
+  3.7716246541050777`*^9}, {3.7716248303988237`*^9, 3.771624873256927*^9}, {
+  3.771624936604855*^9, 3.771624943692876*^9}, {3.771625167133629*^9, 
+  3.771625215565983*^9}, {3.771625447411721*^9, 3.7716255053817797`*^9}, {
+  3.771626567714312*^9, 
+  3.771626568240666*^9}},ExpressionUUID->"61cfa720-bb1b-4ba8-a142-\
+b9cbe1ec62e6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Classifier One ", "Subtitle",
+ CellChangeTimes->{{3.771626577200521*^9, 3.7716265864157677`*^9}, 
+   3.771629954785811*^9},ExpressionUUID->"dd2db162-8517-40e7-a3d6-\
+de8999c432ab"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+   "audioPath", " ", "=", " ", "\"\</Users/veronicaplanck/Desktop/wav\>\""}], 
+   ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"fullPathDirectories", " ", "=", " ", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"FileNames", "[", 
+      RowBox[{"All", ",", " ", 
+       RowBox[{"{", "audioPath", "}"}]}], "]"}], ",", " ", "DirectoryQ"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dirShortNames", " ", "=", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"FileNameTake", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"-", "1"}]}], "]"}], "&"}], ",", " ", "fullPathDirectories"}],
+     "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Audiodata", " ", "=", " ", 
+   RowBox[{"Map", "[", "\n", "\t", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"RandomChoice", "[", 
+       RowBox[{"FileNames", "[", 
+        RowBox[{"\"\<*.wav\>\"", ",", " ", 
+         RowBox[{"{", "#", "}"}]}], "]"}], "]"}], "&"}], ",", "\n", "\t", 
+     "fullPathDirectories"}], "\n", "\t", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "newDirectory", " ", "=", " ", 
+   "\"\</Users/veronicaplanck/Desktop/wav_3/\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"FileExistsQ", "[", "newDirectory", "]"}], ",", " ", 
+    RowBox[{"DeleteDirectory", "[", 
+     RowBox[{"newDirectory", ",", " ", 
+      RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}]}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"CreateDirectory", "[", "newDirectory", "]"}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"newAudioDatas", " ", "=", " ", 
+   RowBox[{"Map", "[", "\n", "\t", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", "\n", "\t\t", 
+        RowBox[{"newDirectory", ",", " ", "\n", "\t\t", 
+         RowBox[{
+          RowBox[{"Function", "[", 
+           RowBox[{"strs", ",", " ", 
+            RowBox[{"StringRiffle", "[", 
+             RowBox[{
+              RowBox[{"FileNameSplit", "[", "strs", "]"}], ",", " ", 
+              "\"\<_\>\""}], "]"}]}], "]"}], "@", 
+          RowBox[{"FileNameTake", "[", 
+           RowBox[{"#", ",", " ", 
+            RowBox[{"-", "2"}]}], "]"}]}]}], "\n", "\t\t", "}"}], "]"}], 
+      "&"}], ",", " ", "\n", "\t", "Audiodata"}], "\n", "\t", "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"MapThread", "[", "\n", "\t", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"CopyFile", "[", 
+       RowBox[{"#1", ",", " ", "#2"}], "]"}], "&"}], "\n", "\t", ",", "\n", 
+     "\t", 
+     RowBox[{"{", 
+      RowBox[{"Audiodata", " ", ",", " ", "newAudioDatas"}], "}"}]}], "\n", 
+    "\t", "]"}], ";"}], "\n", "\t"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "audioPath", " ", "=", " ", "\"\</Users/veronicaplanck/Desktop\>\""}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"realpath", " ", "=", " ", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"audioPath", ",", " ", "\"\<wav_3\>\""}], "}"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"tagData", "[", "file_", "]"}], ":=", " ", 
+   RowBox[{"idToGender", "[", 
+    RowBox[{"First", "@", 
+     RowBox[{"StringSplit", "[", 
+      RowBox[{
+       RowBox[{"FileNameTake", "[", 
+        RowBox[{"file", ",", 
+         RowBox[{"-", "1"}]}], "]"}], ",", "\"\<_\>\""}], "]"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"RealData", " ", "=", " ", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Rule", "[", 
+        RowBox[{
+         RowBox[{"Audio", "[", "#", "]"}], ",", 
+         RowBox[{"tagData", "[", "#", "]"}]}], "]"}], "&"}], ",", 
+      RowBox[{"FileNames", "[", 
+       RowBox[{"All", ",", "realpath"}], "]"}]}], "]"}]}], ";"}], 
+  "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"RealTrainingData", ",", " ", "RealTestData"}], "}"}], " ", "=", 
+   " ", 
+   RowBox[{"TakeList", "[", 
+    RowBox[{
+     RowBox[{"RandomSample", "[", "RealData", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"4", "/", "5"}], "*", 
+        RowBox[{"Length", "[", "RealData", "]"}]}], ",", "All"}], "}"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"ClassifierOne", " ", "=", " ", 
+   RowBox[{"Classify", "@", "RealData"}]}], ";"}]}], "Code",
+ CellChangeTimes->{{3.77162495166679*^9, 3.77162495427348*^9}, {
+   3.771624986489156*^9, 3.771625128178397*^9}, {3.77162528509235*^9, 
+   3.771625391774747*^9}, {3.771625593506732*^9, 3.7716256063279867`*^9}, {
+   3.771625679987718*^9, 3.771625703162723*^9}, {3.771625758579486*^9, 
+   3.7716257684181643`*^9}, {3.7716260583150263`*^9, 
+   3.7716261337886057`*^9}, {3.7716263656584787`*^9, 3.7716265517118483`*^9}, 
+   3.771629024345048*^9, 
+   3.771630022590851*^9},ExpressionUUID->"542adea0-aa3e-442e-8d16-\
+6d8dadb9cf80"],
+
+Cell[CellGroupData[{
+
+Cell["Predict Gender For Camouflaged Voices", "Section",
+ CellChangeTimes->{{3.7716266028690968`*^9, 3.771626620395405*^9}, {
+  3.771629009979239*^9, 3.771629012314959*^9}, {3.771630129848881*^9, 
+  3.7716301342263803`*^9}},ExpressionUUID->"29ee7436-f076-422d-bbbd-\
+99e3c21705cc"],
+
+Cell["\<\
+Imagine a situation where you are a detective, no smart suspects would send \
+you their true voices instead, voices are always camouflaged,either \
+frequency-shifted or pitch-shifted? Here we utilize the neural network and \
+download the net model from Wolfram Neural Net Repository for the gender \
+recognition of frequency-shifted voice since the Classify function doesn\
+\[CloseCurlyQuote]t work well for this case in our calculation neither with \
+full camouflaged voices nor half true half fake voices .\
+\>", "Text",
+ CellChangeTimes->{{3.771630085870352*^9, 3.771630089651783*^9}, {
+  3.7716304171301403`*^9, 3.771630485165513*^9}, {3.771630566380639*^9, 
+  3.77163065436582*^9}, {3.771630685498472*^9, 3.771630707827306*^9}, {
+  3.771630799675119*^9, 3.77163091251595*^9}, {3.771630963470064*^9, 
+  3.771631079272026*^9}, {3.771632295085493*^9, 3.771632335447769*^9}, {
+  3.771632544426177*^9, 
+  3.771632587769538*^9}},ExpressionUUID->"2ca60301-295a-4b46-b72b-\
+3efa4e6ced74"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Dataset ", "Subtitle",
+ CellChangeTimes->{{3.771631087966585*^9, 
+  3.7716310896850023`*^9}},ExpressionUUID->"fc6e6181-0f07-407e-9de9-\
+feac37ded838"],
+
+Cell["\<\
+We generate frequency-shifted audios with a shift range 0f -2000Hz to 2000Hz \
+according to the voices in RealData and store these audios in another \
+directory as what we did for real voices before. Then we take out 30 true \
+voices and 30 camouflaged voices as test data. After mixing up all the rest \
+true and camouflaged voices, we divide them into training data and validation \
+data as a ratio of roughly 7:1. \
+\>", "Text",
+ CellChangeTimes->{{3.77163109588759*^9, 3.77163109763866*^9}, {
+  3.7716311652120113`*^9, 3.7716311961703873`*^9}, {3.771631243617031*^9, 
+  3.771631429947576*^9}, {3.7716316321240788`*^9, 
+  3.771631925804927*^9}},ExpressionUUID->"d41ebe19-75de-41ba-9a70-\
+49ed88401658"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "audioPath", " ", "=", " ", "\"\</Users/veronicaplanck/Desktop\>\""}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"realpath", " ", "=", " ", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"audioPath", ",", " ", "\"\<wav_3\>\""}], "}"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fakepath", " ", "=", " ", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{"audioPath", ",", " ", "\"\<wav_3f\>\""}], "}"}], "]"}]}], 
+   ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"makefake", "[", "file_", "]"}], ":=", 
+   RowBox[{"Export", "[", "\n", "          ", 
+    RowBox[{
+     RowBox[{"FileNames", "[", "file", "]"}], ",", "\n", "                ", 
+     RowBox[{"AudioFrequencyShift", "[", "\n", "                     ", 
+      RowBox[{
+       RowBox[{"Audio", "[", "file", "]"}], ",", 
+       RowBox[{
+        RowBox[{"RandomReal", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2000"}], ",", "2000"}], "}"}], "]"}], "*", 
+        TemplateBox[{"1","\"Hz\"","hertz","\"Hertz\""},
+         "Quantity"]}]}], "]"}]}], "\n", "          ", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FakeData", " ", "=", " ", 
+    RowBox[{"Map", "[", "\n", "                ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Rule", "[", 
+        RowBox[{
+         RowBox[{"Audio", "[", "#", "]"}], ",", 
+         RowBox[{
+          RowBox[{"tagData", "[", "#", "]"}], "/.", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<m\>\"", "\[Rule]", "\"\<fakeM\>\""}], ",", 
+            RowBox[{"\"\<f\>\"", "\[Rule]", "\"\<fakeF\>\""}]}], "}"}]}]}], 
+        "]"}], "&"}], ",", "\n", "                     ", 
+      RowBox[{"FileNames", "[", 
+       RowBox[{"All", ",", "fakepath"}], "]"}]}], "\n", "               ", 
+     "]"}]}], ";"}], "\n", "               "}], "\n", 
+ RowBox[{
+  RowBox[{"TestData", " ", "=", " ", 
+   RowBox[{"Flatten", "@", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"RealData", "\[LeftDoubleBracket]", 
+       RowBox[{
+        RowBox[{"-", "30"}], ";;"}], "\[RightDoubleBracket]"}], ",", 
+      RowBox[{"FakeData", "\[LeftDoubleBracket]", 
+       RowBox[{
+        RowBox[{"-", "30"}], ";;"}], "\[RightDoubleBracket]"}]}], "]"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"TrainingData", " ", "=", " ", 
+    RowBox[{"Flatten", "@", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"RealData", "\[LeftDoubleBracket]", 
+        RowBox[{";;", 
+         RowBox[{"-", "30"}]}], "\[RightDoubleBracket]"}], ",", 
+       RowBox[{"FakeData", "\[LeftDoubleBracket]", 
+        RowBox[{";;", 
+         RowBox[{"-", "30"}]}], "\[RightDoubleBracket]"}]}], "]"}]}]}], ";"}],
+   "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"train", ",", "valid"}], "}"}], "=", 
+    RowBox[{"TakeList", "[", 
+     RowBox[{
+      RowBox[{"RandomSample", "[", "TrainingData", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"700", ",", "All"}], "}"}]}], "]"}]}], ";"}], 
+  "            "}]}], "Code",
+ CellChangeTimes->{
+  3.771631903166708*^9, {3.771631942022562*^9, 3.771631989255516*^9}, {
+   3.771632701591484*^9, 3.7716327165831413`*^9}, {3.771632755185021*^9, 
+   3.771632802666092*^9}},ExpressionUUID->"4185c985-ba41-420f-91a1-\
+fee50636d853"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Classifier Two", "Subtitle",
+ CellChangeTimes->{{3.7716320156777487`*^9, 
+  3.7716320201776457`*^9}},ExpressionUUID->"53b8f6fb-f5c6-4a85-95c2-\
+55240c663a5c"],
+
+Cell["\<\
+We download the net model called \[OpenCurlyDoubleQuote]VGGish Feature \
+Extractor Trained on YouTube Data\[CloseCurlyDoubleQuote] from the Wolfram \
+Neural Net Repository to train our classifier. Also, we set up four classes, \
+: \[OpenCurlyDoubleQuote]f\[CloseCurlyDoubleQuote], \[OpenCurlyDoubleQuote]m\
+\[CloseCurlyDoubleQuote], \
+\[OpenCurlyDoubleQuote]fakeM\[CloseCurlyDoubleQuote], \
+\[OpenCurlyDoubleQuote]fakeF\[CloseCurlyDoubleQuote] stand for \
+\[OpenCurlyDoubleQuote]female\[CloseCurlyDoubleQuote],  \
+\[OpenCurlyDoubleQuote]male\[CloseCurlyDoubleQuote], \
+\[OpenCurlyDoubleQuote]fake male\[CloseCurlyDoubleQuote], \
+\[OpenCurlyDoubleQuote]fake female\[CloseCurlyDoubleQuote] respectively. \
+\>", "Text",
+ CellChangeTimes->{{3.7716321836491327`*^9, 3.771632281046111*^9}, {
+  3.771632367192333*^9, 
+  3.7716324686992807`*^9}},ExpressionUUID->"6320e845-dd27-419b-b000-\
+b0203737e7eb"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"classes", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<f\>\"", ",", "\"\<m\>\"", ",", "\"\<fakeM\>\"", ",", 
+      "\"\<fakeF\>\""}], "}"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"classifier", "=", 
+    RowBox[{"NetGraph", "[", 
+     RowBox[{
+      RowBox[{"<|", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<features\>\"", "\[Rule]", 
+         RowBox[{
+         "NetModel", "[", 
+          "\"\<VGGish Feature Extractor Trained on YouTube Data\>\"", "]"}]}],
+         ",", "\[IndentingNewLine]", 
+        RowBox[{"\"\<dropout\>\"", " ", "\[Rule]", " ", 
+         RowBox[{"DropoutLayer", "[", "]"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"\"\<linear\>\"", "\[Rule]", 
+         RowBox[{"NetMapOperator", "[", 
+          RowBox[{"LinearLayer", "[", "]"}], "]"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"\"\<max\>\"", "\[Rule]", 
+         RowBox[{"AggregationLayer", "[", 
+          RowBox[{"Max", ",", "1"}], "]"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"\"\<softmax\>\"", "\[Rule]", 
+         RowBox[{"SoftmaxLayer", "[", 
+          RowBox[{"\"\<Output\>\"", "\[Rule]", 
+           RowBox[{"NetDecoder", "[", 
+            RowBox[{"{", 
+             RowBox[{"\"\<Class\>\"", ",", "classes"}], "}"}], "]"}]}], 
+          "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", " ", "\n", 
+      RowBox[{"{", 
+       RowBox[{"\"\<features\>\"", "\[Rule]", 
+        RowBox[{"\"\<dropout\>\"", "\[Rule]", 
+         RowBox[{"\"\<linear\>\"", "\[Rule]", 
+          RowBox[{"\"\<max\>\"", "\[Rule]", "\"\<softmax\>\""}]}]}]}], 
+       "}"}]}], "]"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"trainres", "=", 
+   RowBox[{"NetTrain", "[", 
+    RowBox[{"classifier", ",", "train", ",", "All", ",", 
+     RowBox[{"ValidationSet", "\[Rule]", "valid"}], ",", 
+     "\[IndentingNewLine]", "               ", 
+     RowBox[{"TrainingProgressMeasurements", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<ConfusionMatrix\>\"", ",", "\"\<ErrorRate\>\"", ",", 
+        "\"\<Precision\>\"", ",", "\"\<Recall\>\"", ",", "\"\<F1Score\>\""}], 
+       "}"}]}], ",", "\[IndentingNewLine]", "                    ", 
+     RowBox[{"TrainingStoppingCriterion", "\[Rule]", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<Criterion\>\"", "\[Rule]", "\"\<ErrorRate\>\""}], ",", 
+        RowBox[{"\"\<Patience\>\"", "\[Rule]", "5"}]}], "|>"}]}], ",", "\n", 
+     "                         ", 
+     RowBox[{"TargetDevice", "\[Rule]", "\"\<CPU\>\""}], ",", " ", 
+     RowBox[{"BatchSize", "\[Rule]", "8"}]}], "]"}]}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<train800.wlnet\>\"", ",", 
+    RowBox[{"trainres", "[", "\"\<TrainedNet\>\"", "]"}]}], "]"}], 
+  "                         "}]}], "Code",
+ CellChangeTimes->{{3.771632839598091*^9, 3.7716328402073936`*^9}, 
+   3.77163287285213*^9, {3.7716329340395603`*^9, 3.771632958529233*^9}, {
+   3.771633118991025*^9, 
+   3.771633155779296*^9}},ExpressionUUID->"ba2e86f9-a0c1-4a4e-ae9c-\
+0718564946d8"]
+}, Open  ]]
 }, Open  ]]
 },
-WindowSize->{720, 855},
-WindowMargins->{{360, Automatic}, {Automatic, 0}},
+WindowSize->{1025, 855},
+WindowMargins->{{95, Automatic}, {Automatic, 9}},
 DockedCells->{
   Cell[
    TextData[{
@@ -56,8 +552,7 @@ DockedCells->{
       RGBColor[0.97, 0.83, 0.35], FontFamily -> "Source Sans Pro", FontSize -> 
       40]}], CellFrameMargins -> 10, Background -> 
    RGBColor[0.12, 0.14, 0.15]]},
-FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
-2018)",
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 11, 2019)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -72,9 +567,38 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 213, 4, 98, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd"],
-Cell[796, 28, 364, 6, 35, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"],
-Cell[1163, 36, 341, 5, 35, "Text",ExpressionUUID->"b70c649b-a958-4202-9f22-238ea1f9c7d4"]
+Cell[580, 22, 316, 5, 98, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd"],
+Cell[899, 29, 401, 6, 35, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"],
+Cell[1303, 37, 368, 6, 35, "Text",ExpressionUUID->"b70c649b-a958-4202-9f22-238ea1f9c7d4"],
+Cell[CellGroupData[{
+Cell[1696, 47, 249, 4, 67, "Section",ExpressionUUID->"1c0a341f-07b2-471f-b252-8f64aa2baf5c"],
+Cell[1948, 53, 790, 13, 104, "Text",ExpressionUUID->"ff924d7b-2ad7-4c11-9275-a28c32691e94"]
+}, Open  ]],
+Cell[2753, 69, 269, 4, 67, "Section",ExpressionUUID->"ad5c4978-e817-43ab-9935-02cae57f7e9f"],
+Cell[CellGroupData[{
+Cell[3047, 77, 153, 3, 53, "Subtitle",ExpressionUUID->"e1f4415e-c774-45c5-a311-3740042a2de3"],
+Cell[3203, 82, 438, 8, 35, "Text",ExpressionUUID->"feec410c-48f7-4fb3-8734-e22a046638ba"],
+Cell[3644, 92, 1317, 32, 186, "Code",ExpressionUUID->"049e1855-0cb0-4939-b9fb-f7e0ab8b0b61"],
+Cell[4964, 126, 1213, 19, 150, "Text",ExpressionUUID->"61cfa720-bb1b-4ba8-a142-b9cbe1ec62e6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6214, 150, 186, 3, 53, "Subtitle",ExpressionUUID->"dd2db162-8517-40e7-a3d6-de8999c432ab"],
+Cell[6403, 155, 4773, 138, 642, "Code",ExpressionUUID->"542adea0-aa3e-442e-8d16-6d8dadb9cf80"],
+Cell[CellGroupData[{
+Cell[11201, 297, 281, 4, 67, "Section",ExpressionUUID->"29ee7436-f076-422d-bbbd-99e3c21705cc"],
+Cell[11485, 303, 995, 16, 104, "Text",ExpressionUUID->"2ca60301-295a-4b46-b72b-3efa4e6ced74"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12529, 325, 156, 3, 53, "Subtitle",ExpressionUUID->"fc6e6181-0f07-407e-9de9-feac37ded838"],
+Cell[12688, 330, 715, 12, 81, "Text",ExpressionUUID->"d41ebe19-75de-41ba-9a70-49ed88401658"],
+Cell[13406, 344, 3321, 93, 388, "Code",ExpressionUUID->"4185c985-ba41-420f-91a1-fee50636d853"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16764, 442, 164, 3, 53, "Subtitle",ExpressionUUID->"53b8f6fb-f5c6-4a85-95c2-55240c663a5c"],
+Cell[16931, 447, 905, 16, 58, "Text",ExpressionUUID->"6320e845-dd27-419b-b000-b0203737e7eb"],
+Cell[17839, 465, 3084, 71, 357, "Code",ExpressionUUID->"ba2e86f9-a0c1-4a4e-ae9c-0718564946d8"]
+}, Open  ]]
 }, Open  ]]
 }
 ]
