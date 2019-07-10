@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     73316,       1527]
-NotebookOptionsPosition[     68609,       1444]
-NotebookOutlinePosition[     69417,       1471]
-CellTagsIndexPosition[     69374,       1468]
+NotebookDataLength[     73362,       1527]
+NotebookOptionsPosition[     68655,       1444]
+NotebookOutlinePosition[     69463,       1471]
+CellTagsIndexPosition[     69420,       1468]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1403,11 +1403,11 @@ frequency f to r f in the spectrum. \n\nExplore different layers for the NN \
 training to improve our classifier in identifying gender of heavily \
 frequency-shifted camouflaged voices. Moreover, we didn\[CloseCurlyQuote]t \
 deal with pitch-shifted voices which is different from our aspect. \n\nIf we \
-are lucky enough to solove all the problems above, we will reach a situation \
-where poor personal ditectives coule tell the gender of a camouflaged \
+are lucky enough to solve all the problems above, we will reach a situation \
+where poor personal detectives could tell the gender of a camouflaged \
 anonymous phone call no matter how much it is shifted either in frequency or \
-pitch. Then we could even step forward further, imagin you have the a \
-camouflaged anonymous auido and a piece of true voice recording of a suspect, \
+pitch. Then we could even step forward further, imagine you have the a \
+camouflaged anonymous audio and a piece of true voice recording of a suspect, \
 you want to know if they are from the same person. ",
  FontFamily->"Georgia",
  FontWeight->"Regular"]], "Text",
@@ -1417,8 +1417,8 @@ you want to know if they are from the same person. ",
    3.771773472359459*^9}, {3.771773749440317*^9, 3.771773890934184*^9}, {
    3.771773926834056*^9, 3.771774046569635*^9}, {3.771774204361248*^9, 
    3.771774249736766*^9}, {3.7717752589689713`*^9, 3.77177557755656*^9}, {
-   3.771775627672711*^9, 
-   3.771775644240389*^9}},ExpressionUUID->"bfa2b7fa-f8cd-498e-b5ff-\
+   3.771775627672711*^9, 3.771775644240389*^9}, {3.771775924974236*^9, 
+   3.771775952860025*^9}},ExpressionUUID->"bfa2b7fa-f8cd-498e-b5ff-\
 df45707c146d"]
 }, Open  ]],
 
@@ -1521,11 +1521,11 @@ Cell[63119, 1345, 2847, 40, 495, "Text",ExpressionUUID->"954384f0-b487-4161-ae54
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[66003, 1390, 158, 3, 67, "Section",ExpressionUUID->"7081233b-38cc-41b7-a9d3-224ded4baeb1"],
-Cell[66164, 1395, 1738, 26, 369, "Text",ExpressionUUID->"bfa2b7fa-f8cd-498e-b5ff-df45707c146d"]
+Cell[66164, 1395, 1784, 26, 369, "Text",ExpressionUUID->"bfa2b7fa-f8cd-498e-b5ff-df45707c146d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[67939, 1426, 153, 3, 67, "Section",ExpressionUUID->"4698e4aa-9c0e-4afa-aac6-8bf14724a9ba"],
-Cell[68095, 1431, 474, 8, 96, "Text",ExpressionUUID->"57c25caa-f17f-4835-83f1-76781b05c1e1"]
+Cell[67985, 1426, 153, 3, 67, "Section",ExpressionUUID->"4698e4aa-9c0e-4afa-aac6-8bf14724a9ba"],
+Cell[68141, 1431, 474, 8, 96, "Text",ExpressionUUID->"57c25caa-f17f-4835-83f1-76781b05c1e1"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
