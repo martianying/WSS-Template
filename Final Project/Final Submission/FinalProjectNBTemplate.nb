@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     73410,       1528]
-NotebookOptionsPosition[     68703,       1445]
-NotebookOutlinePosition[     69511,       1472]
-CellTagsIndexPosition[     69468,       1469]
+NotebookDataLength[     73415,       1528]
+NotebookOptionsPosition[     68707,       1445]
+NotebookOutlinePosition[     69516,       1472]
+CellTagsIndexPosition[     69473,       1469]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1347,28 +1347,28 @@ Cell[TextData[StyleBox["The build-in Classify function gives decent \
 predictions on gender from real voice data but not camouflaged ones. The \
 Neural Network  must be adapted to deal with frequency-shifted voice \
 recordings. We observed NN could identify gender of fake voices with a rough \
-accuracy of 90% when the data is tagged by female and male (simplified as FM \
-classifier). In case the data tagged by both gender and fakeness, the NN \
-returns a classifier with accuracy of 83% (simplified as FTG classifier). NN \
-could also gives a good classifier to identify fake and true voices \
-(simplified as FT classifier). \n\nThough all the classifiers trained by NN \
-obtain decent accuracy, we could not safely address that they could most \
-likely tell the truth by giving any voices with any frequency change ranged \
-from -2000Hz to 2000Hz.  For example, if we increase the frequency of a male \
-voice by more than 300 Hz, the FM and FTG classifiers almost always identify \
-this fake voice as female, vice verse. Aside from the size of our training \
-data, one possible explanation is that the function we use for deciding how \
-much we shift the frequency of true voices for generating fake voices is \
-RandomReal in Mathematica. We could not guarantee each true voice is shifted \
-properly since for each voice, a small shift with regard to its original \
-frequency won\[CloseCurlyQuote]t make any difference and a large shift could \
-lead to audio distortion. Both of those cases give rise to unreliability of \
-our classifiers\[CloseCurlyQuote] accuracy. Another possible explanation is \
-the composition of our audio data. Though we set up our training dataset with \
-half true voices and half camouflaged voices, gender balance is not taken \
-into consideration because of the randomness in our choosing strategy. Due to \
-the limitation of time and computation resources, we haven\[CloseCurlyQuote]t \
-worked on those two yet. ",
+accuracy of 90% when the data is tagged by female and male ( FM classifier). \
+In case the data tagged by both gender and fakeness, the NN returns a \
+classifier with accuracy of 83% (FTG classifier). NN could also gives a good \
+classifier to identify fake and true voices (FT classifier). \n\nThough all \
+the classifiers trained by NN obtain decent accuracy, we could not safely \
+address that they could most likely tell the truth by giving any voices with \
+any frequency change ranged from -2000Hz to 2000Hz.  For example, if we \
+increase the frequency of a male voice by more than 300 Hz, the FM and FTG \
+classifiers almost always identify this fake voice as female, vice verse. \
+Aside from the size of our training data, one possible explanation is that \
+the function we use for deciding how much we shift the frequency of true \
+voices for generating fake voices is RandomReal in Mathematica. We could not \
+guarantee each true voice is shifted properly since for each voice, a small \
+shift with regard to its original frequency won\[CloseCurlyQuote]t make any \
+difference and a large shift could lead to audio distortion. Both of those \
+cases give rise to unreliability of our classifiers\[CloseCurlyQuote] \
+accuracy. Another possible explanation is the composition of our audio data. \
+Though we set up our training dataset with half true voices and half \
+camouflaged voices, gender balance is not taken into consideration because of \
+the randomness in our choosing strategy. Due to the limitation of time and \
+computation resources, we haven\[CloseCurlyQuote]t worked on those two yet. ",
+ 
  FontFamily->"Georgia",
  FontWeight->"Regular"]], "Text",
  CellChangeTimes->{{3.771718466287552*^9, 3.771718615259944*^9}, {
@@ -1381,8 +1381,8 @@ worked on those two yet. ",
    3.771772796318932*^9, 3.7717729272315083`*^9}, {3.77177297499432*^9, 
    3.771773102011303*^9}, {3.771773480634391*^9, 3.771773508404715*^9}, {
    3.771773554724615*^9, 3.7717735920806026`*^9}, 3.7717736475545263`*^9, {
-   3.771773738278475*^9, 
-   3.771773738573469*^9}},ExpressionUUID->"954384f0-b487-4161-ae54-\
+   3.771773738278475*^9, 3.771773738573469*^9}, {3.771777472119639*^9, 
+   3.77177747755624*^9}},ExpressionUUID->"954384f0-b487-4161-ae54-\
 1b5abf1004b5"]
 }, Open  ]],
 
@@ -1444,7 +1444,7 @@ parts!\n\nzhang@astro1.sci.hokudai.ac.jp",
 }, Open  ]]
 },
 WindowSize->{704, 855},
-WindowMargins->{{Automatic, 349}, {Automatic, 3}},
+WindowMargins->{{294, Automatic}, {Automatic, 25}},
 DockedCells->{
   Cell[
    TextData[{
@@ -1518,15 +1518,15 @@ Cell[50776, 1131, 891, 14, 96, "Text",ExpressionUUID->"5ae3fc99-ba9e-4236-a62d-7
 Cell[51670, 1147, 11214, 188, 317, "Input",ExpressionUUID->"02730960-b255-4635-a021-1ba7d103984a"],
 Cell[CellGroupData[{
 Cell[62909, 1339, 207, 4, 67, "Section",ExpressionUUID->"f974ff2b-90e9-4abb-a850-6bf0e373abb0"],
-Cell[63119, 1345, 2847, 40, 495, "Text",ExpressionUUID->"954384f0-b487-4161-ae54-1b5abf1004b5"]
+Cell[63119, 1345, 2851, 40, 495, "Text",ExpressionUUID->"954384f0-b487-4161-ae54-1b5abf1004b5"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[66003, 1390, 158, 3, 67, "Section",ExpressionUUID->"7081233b-38cc-41b7-a9d3-224ded4baeb1"],
-Cell[66164, 1395, 1832, 27, 327, "Text",ExpressionUUID->"bfa2b7fa-f8cd-498e-b5ff-df45707c146d"]
+Cell[66007, 1390, 158, 3, 67, "Section",ExpressionUUID->"7081233b-38cc-41b7-a9d3-224ded4baeb1"],
+Cell[66168, 1395, 1832, 27, 327, "Text",ExpressionUUID->"bfa2b7fa-f8cd-498e-b5ff-df45707c146d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[68033, 1427, 153, 3, 67, "Section",ExpressionUUID->"4698e4aa-9c0e-4afa-aac6-8bf14724a9ba"],
-Cell[68189, 1432, 474, 8, 96, "Text",ExpressionUUID->"57c25caa-f17f-4835-83f1-76781b05c1e1"]
+Cell[68037, 1427, 153, 3, 67, "Section",ExpressionUUID->"4698e4aa-9c0e-4afa-aac6-8bf14724a9ba"],
+Cell[68193, 1432, 474, 8, 96, "Text",ExpressionUUID->"57c25caa-f17f-4835-83f1-76781b05c1e1"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
