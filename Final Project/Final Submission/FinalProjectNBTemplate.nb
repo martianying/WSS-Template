@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     64963,       1377]
-NotebookOptionsPosition[     61030,       1307]
-NotebookOutlinePosition[     61838,       1334]
-CellTagsIndexPosition[     61795,       1331]
+NotebookDataLength[     67365,       1434]
+NotebookOptionsPosition[     62981,       1356]
+NotebookOutlinePosition[     63789,       1383]
+CellTagsIndexPosition[     63746,       1380]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -551,7 +551,7 @@ Cell["Predict Gender For Camouflaged Voices", "Section",
 edaa55afc871"],
 
 Cell[TextData[StyleBox["In real world,  voices are sometimes camouflaged, \
-either frequency-shifted or pitch-shifted? Here we utilize the neural network \
+either frequency-shifted or pitch-shifted. Here we utilize the neural network \
 and download the net model from Wolfram Neural Net Repository for the gender \
 recognition of frequency-shifted voice since the Classify function doesn\
 \[CloseCurlyQuote]t work well for this case in our calculation neither with \
@@ -559,8 +559,9 @@ dataset of full camouflaged voices nor half true half fake voices .",
  FontFamily->"Georgia",
  FontWeight->"Regular"]], "Text",
  CellChangeTimes->{
-  3.771692818464261*^9, {3.771692878510203*^9, 
-   3.771692911243782*^9}},ExpressionUUID->"da637fad-e5c5-4cc8-aa03-\
+  3.771692818464261*^9, {3.771692878510203*^9, 3.771692911243782*^9}, {
+   3.771717415603177*^9, 
+   3.771717422067753*^9}},ExpressionUUID->"da637fad-e5c5-4cc8-aa03-\
 0ec146b6d73b"]
 }, Open  ]]
 }, Open  ]],
@@ -572,18 +573,18 @@ Cell["Dataset", "Subtitle",
   3.771692955459262*^9},ExpressionUUID->"69bd4ee0-7247-45fa-9bf0-\
 cb1920e59ac2"],
 
-Cell[TextData[StyleBox["We make two audio files by randomly choosing from the \
-audio pool, one stores 1000 real voices and the other stores 1000 \
-frequency-shifted voices with a shift range 0f -2000Hz to 2000Hz according to \
-the selected true voices. ",
+Cell[TextData[StyleBox["We make two audio datasets by randomly sampling from \
+the audio pool, one dataset contains real voices and the other one contains \
+1000 corresponding frequency-shifted voices with a shift range from -2000Hz \
+to 2000Hz according to the selected true voices. ",
  FontFamily->"Georgia",
  FontWeight->"Regular"]], "Text",
  CellChangeTimes->{{3.771693827671208*^9, 3.7716938302309523`*^9}, {
    3.771693861600398*^9, 3.7716939062666073`*^9}, {3.771693958046834*^9, 
    3.771694034563937*^9}, {3.771694075121475*^9, 3.771694082420207*^9}, {
    3.771694302337446*^9, 3.771694426725268*^9}, {3.77169469538599*^9, 
-   3.771694697871608*^9}, 
-   3.771694764783257*^9},ExpressionUUID->"38e555b3-b198-46a0-86c7-\
+   3.771694697871608*^9}, 3.771694764783257*^9, {3.7717174424956837`*^9, 
+   3.7717175294600563`*^9}},ExpressionUUID->"38e555b3-b198-46a0-86c7-\
 fb5b9d59ecd2"],
 
 Cell[BoxData[
@@ -635,15 +636,16 @@ Cell[BoxData[
 0fdf6c854236"],
 
 Cell[TextData[StyleBox["After obtaining the real and fake audio data and \
-associate it with gender information,  we divide them into three groups: the \
-training set, the validation set, and the test set as a ratio of  8 : 1 : 1.",
- 
+associating it with gender information,  we divide them into three subsets: \
+the training set, the validation set, and the test set with a ratio of  8 : 1 \
+: 1.",
  FontFamily->"Georgia",
  FontWeight->"Regular"]], "Text",
  CellChangeTimes->{{3.77169501192972*^9, 3.7716950145631638`*^9}, {
   3.7716950557206793`*^9, 3.771695201788535*^9}, {3.771695324559711*^9, 
-  3.771695331346201*^9}, {3.7716954549560537`*^9, 
-  3.771695461843726*^9}},ExpressionUUID->"79e186df-1c1c-47c8-aa0b-\
+  3.771695331346201*^9}, {3.7716954549560537`*^9, 3.771695461843726*^9}, {
+  3.771717551148725*^9, 
+  3.771717583958153*^9}},ExpressionUUID->"79e186df-1c1c-47c8-aa0b-\
 9584bda677fa"],
 
 Cell[BoxData[
@@ -778,7 +780,7 @@ Cell["Training process", "Subtitle",
 81305238a240"],
 
 Cell[TextData[{
- StyleBox["We download the net model called \[OpenCurlyDoubleQuote]",
+ StyleBox["The net model we used is adapted from \[OpenCurlyDoubleQuote]",
   FontFamily->"Georgia",
   FontWeight->"Regular"],
  Cell[BoxData[
@@ -791,14 +793,21 @@ Feature-Extractor-Trained-on-YouTube-Data"},
   FontFamily->"Georgia",
   FontWeight->"Regular",ExpressionUUID->
   "0a7abaf7-43c4-4443-b936-dff59e1561f6"],
- StyleBox["\[CloseCurlyDoubleQuote] from the Wolfram Neural Net Repository to \
-train our classifier. ",
+ StyleBox["\[CloseCurlyDoubleQuote], which is in the Wolfram Neural Net \
+Repository. We can define diffrent models with different size of training \
+data and different classes.\n\nThe first NN model we trained is with 2000 \
+data-points (half from the real voice dataset, the other half from the fake \
+voice dataset), and with 2 different categories, male (m) and female (f). \
+This model gives us 90% accuracy.",
   FontFamily->"Georgia",
   FontWeight->"Regular"]
 }], "Text",
  CellChangeTimes->{{3.771695704989174*^9, 3.771695723488595*^9}, 
    3.771695756007551*^9, 3.771695819341158*^9, {3.771702173454268*^9, 
-   3.771702196247157*^9}},ExpressionUUID->"5aec9c3c-4adb-46b0-9d07-\
+   3.771702196247157*^9}, {3.771717599984015*^9, 3.771717731922472*^9}, {
+   3.7717180095334272`*^9, 3.771718089144836*^9}, {3.771718151793388*^9, 
+   3.7717181800937843`*^9}, 
+   3.7717182896606817`*^9},ExpressionUUID->"5aec9c3c-4adb-46b0-9d07-\
 9890daeac91f"],
 
 Cell[BoxData[{
@@ -862,24 +871,18 @@ Cell[BoxData[{
   3.771706599937879*^9}},ExpressionUUID->"e2c042ad-4bf3-47f6-9814-\
 d69a5198b554"],
 
-Cell[TextData[StyleBox["This gives an accuracy of 90%. Then, we divided the \
-data into four classes :  \[OpenCurlyDoubleQuote]f\[CloseCurlyDoubleQuote], \
-\[OpenCurlyDoubleQuote]m\[CloseCurlyDoubleQuote], \
-\[OpenCurlyDoubleQuote]fakeM\[CloseCurlyDoubleQuote], \
-\[OpenCurlyDoubleQuote]fakeF\[CloseCurlyDoubleQuote] stand for \
-\[OpenCurlyDoubleQuote]female\[CloseCurlyDoubleQuote],  \
-\[OpenCurlyDoubleQuote]male\[CloseCurlyDoubleQuote], \
-\[OpenCurlyDoubleQuote]fake male\[CloseCurlyDoubleQuote], \
-\[OpenCurlyDoubleQuote]fake female\[CloseCurlyDoubleQuote] respectively. The \
-confusion matrix plot is shown below with an accuracy of 83%:",
- FontFamily->"Georgia",
- FontWeight->"Regular"]], "Text",
- CellChangeTimes->{{3.771702496158286*^9, 3.771702515409411*^9}, {
-  3.77170440281089*^9, 3.7717044051842213`*^9}, {3.771715950404513*^9, 
-  3.771716053007928*^9}, {3.771716186148992*^9, 3.7717161928544416`*^9}, {
-  3.771716226170652*^9, 
-  3.7717162279974623`*^9}},ExpressionUUID->"61245a02-82a7-4e13-a783-\
-9a7938a913d8"],
+Cell[TextData[{
+ "We trained the second NN model with the same data samples above in 4 \
+different categories, such as male (m), female (f), fake male (fakeM), and \
+fake female (fakeF). ",
+ StyleBox[" The confusion matrix plot is shown below with an accuracy of 83%:",
+  FontFamily->"Georgia",
+  FontWeight->"Regular"]
+}], "Text",
+ CellChangeTimes->{{3.771717764532979*^9, 3.7717178351475887`*^9}, {
+  3.7717179513608*^9, 3.771717999361039*^9}, {3.771718235657242*^9, 
+  3.7717182875528297`*^9}},ExpressionUUID->"cdcdcad4-2a6d-4422-9541-\
+1ed9837eb7ac"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -1100,17 +1103,23 @@ QgghhBBCCCGEpC//D9C+5sk=
   PlotRange->{{0, 300}, {0, 303}}]], "Input",
  TextAlignment->Center,ExpressionUUID->"1e1abea7-5ddd-4eea-9bf9-078221c35418"],
 
-Cell["\<\
-The difference in accuracy between the above two classifiers leads us to \
+Cell[TextData[{
+ "The difference in accuracy between the above two classifiers leads us to \
 investigate if the reason behind this is because NN could not work well with \
-identifying true and fake voice recordings. We then run a classifier with \
-classes of fake and real voices. \
-\>", "Text",
+identifying true and fake voice recordings. We then run a third classifier \
+with classes of fake and real voices. The given accuracy is  95% and the ",
+ StyleBox["confusion matrix plot",
+  FontFamily->"Georgia",
+  FontWeight->"Regular"],
+ " is as below:"
+}], "Text",
  CellChangeTimes->{{3.771716265520297*^9, 3.771716271997836*^9}, {
   3.77171640904513*^9, 3.7717164259498177`*^9}, {3.771716507901102*^9, 
   3.7717165245710077`*^9}, {3.771716573979785*^9, 3.77171658940397*^9}, {
   3.77171671514371*^9, 3.771716813530991*^9}, {3.7717168481406927`*^9, 
-  3.77171690824977*^9}},ExpressionUUID->"5ae3fc99-ba9e-4236-a62d-\
+  3.77171690824977*^9}, {3.771718336832312*^9, 3.7717183469726458`*^9}, {
+  3.771718393671479*^9, 
+  3.771718409386965*^9}},ExpressionUUID->"5ae3fc99-ba9e-4236-a62d-\
 7796fea46e07"],
 
 Cell[BoxData[
@@ -1301,12 +1310,52 @@ L88pxwgSzWMYpubGjofu9F0HwzAMwzAMwzAMwzDM/vK/SJOe4w==
   DefaultBaseStyle->"ImageGraphics",
   ImageSizeRaw->{300, 304},
   PlotRange->{{0, 300}, {0, 304}}]], "Input",
- TextAlignment->Center,ExpressionUUID->"02730960-b255-4635-a021-1ba7d103984a"]
+ TextAlignment->Center,ExpressionUUID->"02730960-b255-4635-a021-1ba7d103984a"],
+
+Cell[CellGroupData[{
+
+Cell["Conclusions ", "Section",
+ CellChangeTimes->{{3.771718456224414*^9, 
+  3.771718458633011*^9}},ExpressionUUID->"f974ff2b-90e9-4abb-a850-\
+6bf0e373abb0"],
+
+Cell["\<\
+The build-in Classify function gives decent predictions on gender from real \
+voice data but not camouflaged ones. The Neural Network  must be adapted to \
+deal with frequency-shifted voice recordings. We observed NN could identify \
+gender of fake voices with a rough accuracy of 90% when the data is tagged by \
+female and male. In case the data tagged by both gender and fakeness, the NN \
+returns a classifier with accuracy of 83%. NN could also gives a good \
+classifier to identify fake and true voices. \
+\>", "Text",
+ CellChangeTimes->{{3.771718466287552*^9, 3.771718615259944*^9}, {
+  3.7717186639517393`*^9, 
+  3.771718685520307*^9}},ExpressionUUID->"954384f0-b487-4161-ae54-\
+1b5abf1004b5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Future work", "Section",
+ CellChangeTimes->{{3.771718701309517*^9, 
+  3.7717187048656187`*^9}},ExpressionUUID->"7081233b-38cc-41b7-a9d3-\
+224ded4baeb1"],
+
+Cell["\<\
+We could explore different layers for the NN training to improve our \
+classifier in identifying gender of heavily frequency-shifted camouflaged \
+voices. Moreover, we didn\[CloseCurlyQuote]t deal with pitch-shifted voices \
+which is different from our aspect. \
+\>", "Text",
+ CellChangeTimes->{
+  3.771718476196207*^9},ExpressionUUID->"bfa2b7fa-f8cd-498e-b5ff-\
+df45707c146d"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{720, 855},
-WindowMargins->{{Automatic, 311}, {Automatic, 8}},
+WindowSize->{766, 855},
+WindowMargins->{{Automatic, 265}, {Automatic, 0}},
 DockedCells->{
   Cell[
    TextData[{
@@ -1348,35 +1397,43 @@ Cell[3553, 97, 733, 21, 56, "Text",ExpressionUUID->"ef5fda2a-cae2-4e7f-95f4-b6a5
 Cell[4289, 120, 2072, 72, 132, "Text",ExpressionUUID->"ddfaf332-8263-4903-b8df-39bdad379d95"],
 Cell[6364, 194, 621, 10, 33, "Text",ExpressionUUID->"c34fff84-e981-4abc-8d77-7a9800f5dd18"],
 Cell[6988, 206, 1345, 34, 110, "Code",ExpressionUUID->"d1951c0a-2168-4f86-a0a5-c5c4d7b75c15"],
-Cell[8336, 242, 1091, 17, 117, "Text",ExpressionUUID->"02b92765-f3d5-4a07-acfa-5d940ef18fdf"],
+Cell[8336, 242, 1091, 17, 96, "Text",ExpressionUUID->"02b92765-f3d5-4a07-acfa-5d940ef18fdf"],
 Cell[9430, 261, 2810, 77, 224, "Code",ExpressionUUID->"28585b49-fee4-47e1-9ec8-38418570fd7c"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[12277, 343, 212, 4, 53, "Subtitle",ExpressionUUID->"7a10ce3c-9ab8-493b-a52b-6f686f233e6c"],
-Cell[12492, 349, 823, 22, 56, "Text",ExpressionUUID->"251fb090-2625-43b7-ab2d-8951f22901a2"],
+Cell[12492, 349, 823, 22, 35, "Text",ExpressionUUID->"251fb090-2625-43b7-ab2d-8951f22901a2"],
 Cell[13318, 373, 704, 16, 110, "Code",ExpressionUUID->"3b429f6a-1783-49bd-85c1-a8946dd46e3e"],
 Cell[14025, 391, 290, 6, 33, "Text",ExpressionUUID->"2123d50d-332d-4687-b4ee-e84b4b464dd9"],
 Cell[14318, 399, 8322, 144, 369, "Text",ExpressionUUID->"619ae60c-f9f7-4c2c-8d2d-0ca73583050e"],
 Cell[CellGroupData[{
 Cell[22665, 547, 160, 3, 67, "Section",ExpressionUUID->"26e13ff0-0432-4525-88bc-edaa55afc871"],
-Cell[22828, 552, 666, 11, 117, "Text",ExpressionUUID->"da637fad-e5c5-4cc8-aa03-0ec146b6d73b"]
+Cell[22828, 552, 716, 12, 117, "Text",ExpressionUUID->"da637fad-e5c5-4cc8-aa03-0ec146b6d73b"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23543, 569, 129, 3, 53, "Subtitle",ExpressionUUID->"69bd4ee0-7247-45fa-9bf0-cb1920e59ac2"],
-Cell[23675, 574, 712, 12, 75, "Text",ExpressionUUID->"38e555b3-b198-46a0-86c7-fb5b9d59ecd2"],
-Cell[24390, 588, 1849, 46, 233, "Code",ExpressionUUID->"c74af6e4-299b-47dd-a194-0fdf6c854236"],
-Cell[26242, 636, 567, 10, 75, "Text",ExpressionUUID->"79e186df-1c1c-47c8-aa0b-9584bda677fa"],
-Cell[26812, 648, 4495, 121, 486, "Code",ExpressionUUID->"99a89c88-aae4-4657-8730-f6f04ef2296b"]
+Cell[23593, 570, 129, 3, 53, "Subtitle",ExpressionUUID->"69bd4ee0-7247-45fa-9bf0-cb1920e59ac2"],
+Cell[23725, 575, 792, 12, 75, "Text",ExpressionUUID->"38e555b3-b198-46a0-86c7-fb5b9d59ecd2"],
+Cell[24520, 589, 1849, 46, 233, "Code",ExpressionUUID->"c74af6e4-299b-47dd-a194-0fdf6c854236"],
+Cell[26372, 637, 621, 11, 54, "Text",ExpressionUUID->"79e186df-1c1c-47c8-aa0b-9584bda677fa"],
+Cell[26996, 650, 4495, 121, 486, "Code",ExpressionUUID->"99a89c88-aae4-4657-8730-f6f04ef2296b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[31344, 774, 138, 3, 53, "Subtitle",ExpressionUUID->"c2788259-99da-4d62-9212-81305238a240"],
-Cell[31485, 779, 900, 22, 56, "Text",ExpressionUUID->"5aec9c3c-4adb-46b0-9d07-9890daeac91f"],
-Cell[32388, 803, 2697, 59, 338, "Code",ExpressionUUID->"e2c042ad-4bf3-47f6-9814-d69a5198b554"],
-Cell[35088, 864, 1026, 17, 75, "Text",ExpressionUUID->"61245a02-82a7-4e13-a783-9a7938a913d8"],
-Cell[36117, 883, 13011, 217, 316, "Input",ExpressionUUID->"1e1abea7-5ddd-4eea-9bf9-078221c35418"],
-Cell[49131, 1102, 654, 11, 81, "Text",ExpressionUUID->"5ae3fc99-ba9e-4236-a62d-7796fea46e07"],
-Cell[49788, 1115, 11214, 188, 317, "Input",ExpressionUUID->"02730960-b255-4635-a021-1ba7d103984a"]
+Cell[31528, 776, 138, 3, 53, "Subtitle",ExpressionUUID->"c2788259-99da-4d62-9212-81305238a240"],
+Cell[31669, 781, 1394, 29, 161, "Text",ExpressionUUID->"5aec9c3c-4adb-46b0-9d07-9890daeac91f"],
+Cell[33066, 812, 2697, 59, 338, "Code",ExpressionUUID->"e2c042ad-4bf3-47f6-9814-d69a5198b554"],
+Cell[35766, 873, 554, 11, 79, "Text",ExpressionUUID->"cdcdcad4-2a6d-4422-9541-1ed9837eb7ac"],
+Cell[36323, 886, 13011, 217, 316, "Input",ExpressionUUID->"1e1abea7-5ddd-4eea-9bf9-078221c35418"],
+Cell[49337, 1105, 906, 17, 104, "Text",ExpressionUUID->"5ae3fc99-ba9e-4236-a62d-7796fea46e07"],
+Cell[50246, 1124, 11214, 188, 317, "Input",ExpressionUUID->"02730960-b255-4635-a021-1ba7d103984a"],
+Cell[CellGroupData[{
+Cell[61485, 1316, 157, 3, 67, "Section",ExpressionUUID->"f974ff2b-90e9-4abb-a850-6bf0e373abb0"],
+Cell[61645, 1321, 711, 12, 150, "Text",ExpressionUUID->"954384f0-b487-4161-ae54-1b5abf1004b5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[62393, 1338, 158, 3, 67, "Section",ExpressionUUID->"7081233b-38cc-41b7-a9d3-224ded4baeb1"],
+Cell[62554, 1343, 387, 8, 81, "Text",ExpressionUUID->"bfa2b7fa-f8cd-498e-b5ff-df45707c146d"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
